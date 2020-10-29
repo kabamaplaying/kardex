@@ -56,7 +56,7 @@
             <div class="column is-12" fxLayoutAlign="center" fxLayoutGap="15px">
               <button color="primary" mat-flat-button type="button" [disabled]="crearMovimientoForm.invalid"
                 (click)="saveKardex()">Guardar</button>
-              <button color="primary" mat-flat-button type="button" (click)="goBack()">Regresar</button>
+              <button color="primary" mat-flat-button type="button" [routerLink]="['/productos']" >Regresar</button>
             </div>
           </div>
           </div>

@@ -95,9 +95,7 @@ export class CrearMovimientoComponent implements OnInit {
     this.crearMovimientoForm.reset();
   }
 
-  goBack() {
-    this.goBackEvent.emit(1);
-  }
+
 
   seleccionarProveedor(proveedor: Model.UsuarioCreateRespuestaDto) {
     console.log(proveedor);

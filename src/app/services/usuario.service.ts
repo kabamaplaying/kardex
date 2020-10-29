@@ -18,7 +18,7 @@ export class UsuarioService {
   buscarListaProveedores(): Observable<Model.UsuarioCreateRespuestaDto[]> {
     return this.http
       .get<Model.UsuarioCreateRespuestaDto[]>(
-        `${URL_API.base}/usuario/consultar/rol/${ROLES.PROVEEDOR}`,
+        `${URL_API.base}/private/usuario/consultar/rol/${ROLES.PROVEEDOR}`,
         httpOptions
       )
       .pipe(tap(console.warn),map((proveedores: Model.UsuarioCreateRespuestaDto[]) => proveedores));

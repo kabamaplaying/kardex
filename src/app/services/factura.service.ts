@@ -18,7 +18,7 @@ export class FacturaService {
 
   private readonly listaFactura$ = new BehaviorSubject<
   Model.CrearFacturaRespuestaDto[]
->(null);
+>([]);
 listaFactura = this.listaFactura$.asObservable();
 
 
@@ -43,7 +43,7 @@ listaFactura = this.listaFactura$.asObservable();
   ): Observable<Model.ConsultarDetalleFacturaRespuestaDto[]> {
     return this.http
       .get<Model.ConsultarDetalleFacturaRespuestaDto[]>(
-        `${URL_API.base}/factura/detalle/producto/${idProducto}`,
+        `${URL_API.base}/private/factura/detalle/producto/${idProducto}`,
         httpOptions
       )
       .pipe(
@@ -51,7 +51,6 @@ listaFactura = this.listaFactura$.asObservable();
           (facturas: Model.ConsultarDetalleFacturaRespuestaDto[]) => facturas
         ),
         catchError((err) => {
-          console.log(err);
           throw new Error('Error');
         })
       );
@@ -62,7 +61,7 @@ listaFactura = this.listaFactura$.asObservable();
   ): Observable<Model.CrearFacturaRespuestaDto> {
     return this.http
       .post<Model.CrearFacturaRespuestaDto>(
-        `${URL_API.base}/factura/crear-factura`,
+        `${URL_API.base}/private/factura/crear-factura`,
         JSON.stringify(factura),
         httpOptions
       )
@@ -82,7 +81,7 @@ listaFactura = this.listaFactura$.asObservable();
   buscarFacturas(): Observable<Model.CrearFacturaRespuestaDto[]> {
     return this.http
       .get<Model.CrearFacturaRespuestaDto[]>(
-        `${URL_API.base}/factura/consultar`,
+        `${URL_API.base}/private/factura/consultar`,
         httpOptions
       )
       .pipe(

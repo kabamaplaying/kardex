@@ -22,7 +22,7 @@ export class MovimientoService {
   ): Observable<Model.ConsultarMovimientoRespuestaDto> {
     return this.http
       .get<Model.ConsultarMovimientoRespuestaDto>(
-        `${URL_API.base}/movimientos/consultar/${id}`,
+        `${URL_API.base}/private/movimientos/consultar/${id}`,
         httpOptions
       )
       .pipe(
@@ -39,7 +39,7 @@ export class MovimientoService {
   ): Observable<Model.ConsultarMovimientoRespuestaDto> {
     return this.http
       .get<Model.ConsultarMovimientoRespuestaDto>(
-        `${URL_API.base}/movimientos/consultar/producto/${idProducto}`,
+        `${URL_API.base}/private/movimientos/consultar/producto/${idProducto}`,
         httpOptions
       )
       .pipe(
@@ -62,7 +62,7 @@ export class MovimientoService {
   ): Observable<Model.ConsultarMovimientoRespuestaDto> {
     return this.http
       .post<Model.CrearMovimientoRespuestaDto>(
-        `${URL_API.base}/movimientos/crear-movimiento/`,
+        `${URL_API.base}/private/movimientos/crear-movimiento/`,
         JSON.stringify(movimiento),
         httpOptions
       )
@@ -94,7 +94,7 @@ export class MovimientoService {
   ): Observable<Model.DetalleMovimientoDto> {
     return this.http
       .put<Model.DetalleMovimientoDto>(
-        `${URL_API.base}/movimientos/crear-detalle`,
+        `${URL_API.base}/private/movimientos/crear-detalle`,
         JSON.stringify(detalle),
         httpOptions
       )
@@ -118,7 +118,7 @@ export class MovimientoService {
   ): Observable<Model.TipoMovimientoDto[]> {
     return this.http
       .get<Model.TipoMovimientoDto[]>(
-        `${URL_API.base}/movimientos/consultar/tipo-movimiento`,
+        `${URL_API.base}/private/movimientos/consultar/tipo-movimiento`,
         httpOptions
       )
       .pipe(

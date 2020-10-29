@@ -12,15 +12,14 @@ export class ProductoService {
   constructor(private http: HttpClient) {}
 
   buscarProductos(): Observable<Model.ProductoDto[]> {
-    console.log('ingrasando servicio')
     return this.http
-      .get<Model.ProductoDto[]>(`${URL_API.base}/productos`);
+      .get<Model.ProductoDto[]>(`${URL_API.base}/private/productos`);
   }
 
   buscarProductosPorId(id: number): Observable<Model.ProductoDto> {
     return this.http
       .get<Model.ProductoDto>(
-        `${URL_API.base}/productos/${id}`,
+        `${URL_API.base}/private/productos/${id}`,
         httpOptions
       )
       .pipe(map((productos: Model.ProductoDto) => productos));
@@ -29,7 +28,7 @@ export class ProductoService {
   buscarProductosPorMarca(marca: string): Observable<Model.ProductoDto[]> {
     return this.http
       .get<Model.ProductoDto[]>(
-        `${URL_API.base}/productos/marca/${marca}`,
+        `${URL_API.base}/private/productos/marca/${marca}`,
         httpOptions
       )
       .pipe(map((productos: Model.ProductoDto[]) => productos));
@@ -38,7 +37,7 @@ export class ProductoService {
   buscarProductosPorNombre(nombre: string): Observable<Model.ProductoDto[]> {
     return this.http
       .get<Model.ProductoDto[]>(
-        `${URL_API.base}/productos/nombre/${nombre}`,
+        `${URL_API.base}/private/productos/nombre/${nombre}`,
         httpOptions
       )
       .pipe(map((productos: Model.ProductoDto[]) => productos));
@@ -47,7 +46,7 @@ export class ProductoService {
   buscarProductosPorCodigo(codigo: string): Observable<Model.ProductoDto[]> {
     return this.http
       .get<Model.ProductoDto[]>(
-        `${URL_API.base}/productos/codigo/${codigo}`,
+        `${URL_API.base}/private/productos/codigo/${codigo}`,
         httpOptions
       )
       .pipe(map((productos: Model.ProductoDto[]) => productos));
