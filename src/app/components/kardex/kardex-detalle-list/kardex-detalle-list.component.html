@@ -1,0 +1,65 @@
+<div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+
+  <div fxFlex="100">
+    <div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+      <div class="mat-elevation-z8">
+        <table mat-table [dataSource]="dataSource">
+          <ng-container matColumnDef="fecha">
+            <th mat-header-cell *matHeaderCellDef>Fecha</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.fechaMovimiento}}</td>
+          </ng-container>
+
+          <!-- Name Column -->
+          <ng-container matColumnDef="detalle">
+            <th mat-header-cell *matHeaderCellDef>Detalle</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.descripcion}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="cante">
+            <th mat-header-cell *matHeaderCellDef>Cantidad Entrada</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.cantidadEntrada}}</td>
+          </ng-container>
+          <ng-container matColumnDef="costoue">
+            <th mat-header-cell *matHeaderCellDef>Costo U Entrada</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.valorUnitarioEntrada | currency }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="costote">
+            <th mat-header-cell *matHeaderCellDef>Costo Total Entrada</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.valorEntrada | currency }}</td>
+          </ng-container>
+
+
+          <ng-container matColumnDef="cants">
+            <th mat-header-cell *matHeaderCellDef>Cantidad</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.cantidadSalida}}</td>
+          </ng-container>
+          <ng-container matColumnDef="costous">
+            <th mat-header-cell *matHeaderCellDef>Costo U</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.valorUnitarioSalida | currency }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="costots">
+            <th mat-header-cell *matHeaderCellDef>Costo</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.valorSalida | currency }}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="cantidadsaldo">
+            <th mat-header-cell *matHeaderCellDef>Cantidad Existencia</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.cantidadSaldo}}</td>
+          </ng-container>
+
+          <ng-container matColumnDef="costosaldo">
+            <th mat-header-cell *matHeaderCellDef>Costo Total</th>
+            <td mat-cell *matCellDef="let detalle">{{detalle.valorSaldo | currency }}</td>
+          </ng-container>
+
+          <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+          <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+         <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons></mat-paginator>
+      </div>
+    </div>
+
+  </div>
+

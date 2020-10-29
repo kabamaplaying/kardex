@@ -1,0 +1,37 @@
+<mat-toolbar color="primary">
+  <mat-toolbar-row>
+    <span>Kardex</span>
+    <span class="menu-spacer"></span>
+
+    <div fxShow="true" fxHide.lt-md fxFlex fxLayout="row" fxLayoutAlign="flex-end" fxLayoutGap="20px">
+      <button mat-button [matMenuTriggerFor]="menuBuilding" matTooltip="Administrar">
+        <mat-icon>settings</mat-icon>
+      </button>
+      <button mat-button [matMenuTriggerFor]="menu" matTooltip="Salir">
+        <mat-icon>account_circle</mat-icon>
+      </button>
+
+      <mat-menu #menuBuilding="matMenu">
+        <button mat-menu-item routerLink="/productos" (click)="productos()">
+          <mat-icon>shopping_basket</mat-icon>
+          Productos
+        </button>
+        <button mat-menu-item (click)="facturas()">
+          <mat-icon>insert_drive_file</mat-icon>
+          Facturas
+        </button>
+        <button mat-menu-item routerLink="reportes/notify-jas">
+          <mat-icon>person</mat-icon>
+          Porveedores
+        </button>
+      </mat-menu>
+
+      <mat-menu #menu="matMenu">
+        <button mat-menu-item (click)="logout()" type="button">
+          <mat-icon>exit_to_app</mat-icon>
+          Sign out
+        </button>
+      </mat-menu>
+    </div>
+  </mat-toolbar-row>
+</mat-toolbar>

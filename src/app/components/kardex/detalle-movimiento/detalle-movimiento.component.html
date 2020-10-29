@@ -1,0 +1,22 @@
+<div fxFlex="90">
+
+  <div fxLayout="column" fxLayout.xs="row" fxFlex="100" fxLayoutGap="15px" fxLayoutAlign="center">
+    <p> <strong>Proveedor:</strong> {{productoKardex.proveedorNombre}}</p>
+    <p> <strong>Producto:</strong> {{productoKardex.productoNombre}}</p>
+  </div>
+  <div fxLayout="column" fxLayout.xs="row"  fxFlex="100">
+    <p> <strong>Referencia:</strong> {{productoKardex.productoReferencia}}</p>
+    <p> <strong>Unidades:</strong> {{productoKardex.productoUnidades}}</p>
+  </div>
+
+
+  <div fxLayout="column" fxLayout.xs="row"  fxFlex="100" fxLayoutAlign="center">
+    <p> <strong>Máximo:</strong> {{productoKardex.maximo}}</p>
+    <p> <strong>Mínimo:</strong> {{productoKardex.maximo}}</p>
+  </div>
+
+<div fxLayout="row" fxLayout.xs="colunm"  fxFlex="30" fxLayoutAlign="center center" fxLayoutGap="15px">
+     <button  mat-raised-button color="primary" (click)="abrirDialogoAsociarFactura(productoKardex.idProducto)" [disabled]="!(facturasProducto | async)"><mat-icon>add</mat-icon> Movimiento</button>
+     <button  mat-raised-button color="accent"  [routerLink]="['/factura', productoKardex.idProducto]"><mat-icon>add</mat-icon> Facturas</button>
+  </div>
+</div>

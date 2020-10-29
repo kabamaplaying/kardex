@@ -1,0 +1,62 @@
+<div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+  <div fxFlex="100" fxLayoutAlign="center">
+    <mat-card class="matx-light-purple" fxFlex="100">
+      <mat-card-header>
+        <mat-card-title>Factura</mat-card-title>
+        <mat-card-subtitle>No. {{numeroFactura}} </mat-card-subtitle>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <form [formGroup]="crearFacturaForm">
+          <div fxLayout="column">
+
+            <div fxLayout="column" fxFlex="100">
+              <mat-form-field appearance="outline" class="column is-12">
+                <mat-label>Fecha</mat-label>
+                <input matInput [matDatepicker]="picker" (dateInput)="seleccionarFecha($event)"
+                  (dateChange)="seleccionarFecha($event)" formControlName="fecha">
+                <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+                <mat-datepicker #picker></mat-datepicker>
+                <mat-error *ngIf="fecha.invalid">
+                  {{getFechaInputError()}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="column" fxFlex="100">
+              <mat-form-field appearance="outline" class="column is-12">
+                <mat-label>Proveedor</mat-label>
+                <mat-select formControlName="proveedor" (selectionChange)="seleccionarProveedor($event)">
+                  <mat-option *ngFor="let provee of (proveedores$ | async)" [value]="provee">
+                    {{provee.nombreCompleto}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="proveedor.invalid">
+                  {{getProveedorInputError()}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+            <div fxLayout="column" fxFlex="100">
+              <mat-form-field appearance="outline" class="column is-12">
+                <mat-label>Tipo movimiento</mat-label>
+                <mat-select formControlName="tipoMovimiento" (selectionChange)="seleccionarProveedor($event)">
+                  <mat-option *ngFor="let tipoMovi of (tipoMovimiento$ | async)" [value]="tipoMovi">
+                    {{tipoMovi.nombre}}
+                  </mat-option>
+                </mat-select>
+                <mat-error *ngIf="tipoMovimiento.invalid">
+                  {{getTipoMovimientoInputError()}}
+                </mat-error>
+              </mat-form-field>
+            </div>
+
+              <div class="column is-12" fxLayoutAlign="center" fxLayoutGap="15px">
+                <button color="primary" mat-flat-button type="button" [disabled]="crearFacturaForm.invalid"
+                  (click)="saveFactura()">Guardar</button>
+                <button color="primary" mat-flat-button type="button" (click)="goBack()">Limpiar</button>
+              </div>
+            </div>
+          </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>

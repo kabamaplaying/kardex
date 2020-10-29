@@ -1,0 +1,24 @@
+<div fxLayout="row" class="m-top-30">
+  <div fxFlex="100" fxLayoutAlign="center" fxLayoutGap="15px">
+    <div fxLayout="column" fxFlex="40">
+      <app-kardex-factura-form [proveedores$]="proveedores" [tipoMovimiento$]="tipoMovimientos"
+        (saveEvent)="crearFacturaInicial($event)" *ngIf="crearFacturaVisible"
+        [idProductoMovimiento]="idProductoMovimiento"
+        >
+      </app-kardex-factura-form>
+
+
+      <app-kardex-factura-crear-detalle [productos$]="productos" *ngIf="!crearFacturaVisible"
+      [enableEnviarFactura]="enableEnviarFactura"
+        (saveDetallefacturaEvent)="crearDetalleFacturaInicial($event)"
+        (finalizarCrearFacturaEvent)="guardarFactura($event)"></app-kardex-factura-crear-detalle>
+
+
+
+    </div>
+    <div fxLayout="column" fxFlex="60">
+      <app-kardex-factura-lista [facturas]="facturas"></app-kardex-factura-lista>
+    </div>
+
+  </div>
+</div>

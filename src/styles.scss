@@ -1,1 +1,111 @@
 /* You can add global styles to this file, and also import other style files */
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+table{
+  width:100%;
+}
+.container {
+  padding-right: 15px;
+  padding-left: 15px;
+  margin-right: auto;
+  margin-left: auto;
+  height: 100%;
+}
+
+.reset-margin { margin-left: 0; margin-right: 0; }
+
+@media (min-width: 768px) {
+  .container {
+    width: 750px;
+  }
+}
+@media (min-width: 992px) {
+  .container {
+    width: 970px;
+  }
+}
+@media (min-width: 1200px) {
+  .container {
+    width: 1170px;
+  }
+}
+
+.m-top-30{
+  margin-top: 30px;
+}
+
+
+.primary-text-color {
+  color: #673ab7 !important;
+}
+
+.primary-text-color-black {
+  color: #171515 !important;
+}
+
+.mg-xs {
+  margin: 15px;
+}
+
+.mg-sm {
+  margin: 30px;
+}
+
+.mg-t-xs{
+  margin-top: 15px;
+}
+
+.mg-b-xs{
+  margin-bottom: 15px;
+}
+.mg-r-xs{
+  margin-right: 15px;
+}
+.mg-l-xs{
+  margin-left: 15px;
+}
+
+.mat-form-field {
+  flex: 100;
+}
+
+.card-title-principal {
+  font-family: 'Poppins', sans-serif !important;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 29px;
+  color: #673ab7;
+}
+
+.subtitle-color{
+  color: #A7A7B4 !important;
+}
+.mat-card-header-text {
+  width: 100% !important;
+  margin: 0 !important;
+}
+
+.font-bold-600{
+  font-weight: 6;
+}
+.icon-prefix-color-form{
+  color: #EDEFF2;
+}
+.text-register-form{
+  color: #183640;
+}
+
+body{
+  background-color: #F4F6F7 !important;
+}
+
+.mat-form-field  {
+  width: 100%;
+}
+
+.mat-paginator-page-size{
+  min-width: 50%;
+}
+

@@ -1,0 +1,26 @@
+<h2 mat-dialog-title class="title-dialog">{{dialogData.tituloDialog}}</h2>
+<mat-dialog-content>
+  <form [formGroup]="seleccionarFacturaForm">
+    <div fxLayout="column">
+      <div fxLayout="column" fxFlex="100">
+        <mat-form-field appearance="outline" class="column is-12">
+          <mat-label>Facturas</mat-label>
+          <mat-select formControlName="factura" (selectionChange)="seleccionarProveedor($event)">
+            <mat-option *ngFor="let factura of dialogData.data " [value]="factura">
+              {{factura.detalleKardex}}
+            </mat-option>
+          </mat-select>
+          <mat-error *ngIf="factura.invalid">
+            {{getFacturaInputError()}}
+          </mat-error>
+        </mat-form-field>
+      </div>
+    </div>
+  </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+  <div class="buttons">
+    <a mat-button color="primary" (click)="cancelarAccion()">Cancelar</a>
+    <a type="button" mat-raised-button color="warn" (click)="confirmarAccion()">{{dialogData.titleButton}}</a>
+  </div>
+</mat-dialog-actions>

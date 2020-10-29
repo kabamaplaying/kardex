@@ -1,0 +1,19 @@
+<div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100">
+  <div fxLayout="row wrap" fxLayoutGap="8px">
+    <ng-container *ngIf="!existeMovimientoProducto; else crearKardextemplate">
+      <div fxFlex="100">
+        <app-crear-movimiento [proveedores$]="proveedores" (saveEvent)="crearMovimiento($event)"></app-crear-movimiento>
+      </div>
+    </ng-container>
+    <ng-template #crearKardextemplate>
+      <div fxFlex="100">
+        <app-detalle-movimiento [productoKardex]="productoKardex" (buscarfacturaIdProducto)="buscarfacturaIdProducto($event)" [facturasProducto]="facturas"
+        (crearDetalleMovimientoEvent)="crearDetalleMovimiento($event)"
+        ></app-detalle-movimiento>
+      </div>
+      <div fxFlex="100">
+        <app-kardex-detalle-list [detalles]="detalles"></app-kardex-detalle-list>
+      </div>
+    </ng-template>
+  </div>
+</div>

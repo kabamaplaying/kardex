@@ -1,0 +1,67 @@
+<div fxFlex="100" fxFlex.sm="100" fxFlex.gt-sm="100" class="m-top-30">
+  <div fxFlex="100" fxLayoutAlign="center">
+    <mat-card class="matx-light-purple" fxFlex="40">
+      <mat-card-header>
+        <mat-card-title>Nuevo Kardex</mat-card-title>
+      </mat-card-header>
+      <mat-divider></mat-divider>
+      <mat-card-content>
+        <form [formGroup]="crearMovimientoForm">
+          <div fxLayout="column" >
+            <div fxLayout="column" fxFlex="100">
+            <mat-form-field appearance="outline" class="column is-12">
+              <mat-label>Proveedor</mat-label>
+              <mat-select formControlName="proveedor" (selectionChange)="seleccionarProveedor($event)">
+                <mat-option *ngFor="let provee of (proveedores$ | async)" [value]="provee">
+                  {{provee.nombreCompleto}}
+                </mat-option>
+              </mat-select>
+              <mat-error *ngIf="proveedor.invalid">
+                {{getProveedorInputError()}}
+              </mat-error>
+            </mat-form-field>
+          </div>
+
+
+          <div  fxLayout="row"  fxLayoutAlign="center">
+            <div  fxFlex="100" fxLayoutGap="20px"  fxLayout="row" >
+            <mat-form-field appearance="outline" class="column is-12" fxFlex="50">
+              <mat-label>Número míximo de productos</mat-label>
+              <input formControlName="minimo" matInput placeholder="No míximo producto" type="number">
+              <mat-error *ngIf="minimo.invalid">
+                {{getMinimoInputError()}}
+              </mat-error>
+            </mat-form-field>
+
+            <mat-form-field appearance="outline" class="column is-12" fxFlex="50">
+              <mat-label>Número máximo de productos</mat-label>
+              <input formControlName="maximo" matInput placeholder="No máximo producto" type="number">
+              <mat-error *ngIf="maximo.invalid">
+                {{getMaximoInputError()}}
+              </mat-error>
+            </mat-form-field>
+            </div>
+          </div>
+
+          <div fxLayout="column" fxFlex="100">
+            <mat-form-field appearance="outline" class="column is-12">
+              <mat-label>Observaciones</mat-label>
+              <textarea matInput formControlName="observaciones" placeholder="Observaciones">
+                </textarea>
+              <mat-error *ngIf="observaciones.invalid">
+                {{getObservacionesInputError()}}
+              </mat-error>
+            </mat-form-field>
+
+            <div class="column is-12" fxLayoutAlign="center" fxLayoutGap="15px">
+              <button color="primary" mat-flat-button type="button" [disabled]="crearMovimientoForm.invalid"
+                (click)="saveKardex()">Guardar</button>
+              <button color="primary" mat-flat-button type="button" (click)="goBack()">Regresar</button>
+            </div>
+          </div>
+          </div>
+        </form>
+      </mat-card-content>
+    </mat-card>
+  </div>
+</div>
