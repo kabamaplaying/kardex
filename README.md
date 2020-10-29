@@ -4,6 +4,8 @@ usuario:admin@mail.com
 password: 12345678
 
 # Posibles pasos
+0.1. abrir consola y ejecutar npm i 
+0.2. cmd ng serve para ejecutar el proyecto angular
 1. se listan los productos disponibles
 2. se puede navegar a crear kardex para un producto
 3. si no tiene facturas se puede crear para el producto que se habia seleccionado
